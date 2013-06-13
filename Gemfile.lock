@@ -9,6 +9,18 @@ GIT
       new_responds_to_parent
 
 GIT
+  remote: git@github.com:dangluan/ruby_gallery.git
+  revision: 053e4541894b8e9058015ef5313121868ed885b9
+  tag: v0.2.5
+  specs:
+    ruby_gallery (0.2.5)
+      bourbon
+      cocaine (~> 0.5.1)
+      compass-rails
+      jquery-fileupload-rails
+      paperclip (~> 3.0)
+
+GIT
   remote: git@github.com:jameshuynh/new_responds_to_parent.git
   revision: 2c1857d235916018a4960c1f4aa2585bd4aae472
   specs:
@@ -47,7 +59,7 @@ GEM
     arel (3.0.2)
     bcrypt-ruby (3.0.1)
     bcrypt-ruby (3.0.1-x86-mingw32)
-    bourbon (3.1.7)
+    bourbon (3.1.8)
       sass (>= 3.2.0)
       thor
     builder (3.0.4)
@@ -67,6 +79,8 @@ GEM
       chunky_png (~> 1.2)
       fssm (>= 0.2.7)
       sass (~> 3.1)
+    compass-rails (1.0.3)
+      compass (>= 0.12.2, < 0.14)
     daemons (1.1.9)
     devise (2.2.4)
       bcrypt-ruby (~> 3.0)
@@ -91,6 +105,9 @@ GEM
       rake
       rdoc
     journey (1.0.4)
+    jquery-fileupload-rails (0.4.1)
+      actionpack (>= 3.1)
+      railties (>= 3.1)
     jquery-rails (2.0.2)
       railties (>= 3.2.0, < 5.0)
       thor (~> 0.14)
@@ -186,6 +203,7 @@ DEPENDENCIES
   paperclip (~> 3.0)
   rack (~> 1.4.5)
   rails (~> 3.2.13)
+  ruby_gallery!
   sass-rails (~> 3.2.3)
   sqlite3
   thin

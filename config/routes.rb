@@ -1,12 +1,23 @@
 RailsApp::Application.routes.draw do
 
+  delete '/lands/:id/delete_photo', controller: :lands, action: :delete_photo
+
+  post '/lands/upload_album', controller: :lands, action: :upload_album
+
+  put '/lands/update_ruby_gallery_position', controller: :lands, action: :update_ruby_gallery_position
+
   devise_for :admins, :controllers => { :sessions => "admins/sessions" }
   
   scope "/admins" do
     root :to => "dashboard#index"
     get "/dashboard/home", controller: :dashboard, action: :home
-    resources :lands
+    resources :lands do
+      member do
+        get :upload_preview
+      end
+    end
   end
+  
   
   get '/clients/:id/land_detail', controller: :clients, action: :land_detail
   get '/clients/:id/show_map', controller: :clients, action: :show_map

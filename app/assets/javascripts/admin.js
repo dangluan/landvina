@@ -10,14 +10,15 @@
 // WARNING: THE FIRST BLANK LINE MARKS THE END OF WHAT'S TO BE PROCESSED, ANY BLANK LINE SHOULD
 // GO AFTER THE REQUIRES BELOW.
 //
+//= require_tree .
 //= require jquery
 //= require jquery_ujs
 //= require locations
 //= require ./admins/jquery.layout
 //= require ./admins/jquery.ui.all
+//= require ruby_gallery/app
 
 $(document).ready(function(){
-
   $(document.body).delegate('form.base-form fieldset.actions input.base-form-submit', 'click', function(e){
   	$('form.base-form')
   	.bind("ajax:beforeSend", function(evt, xhr, settings){

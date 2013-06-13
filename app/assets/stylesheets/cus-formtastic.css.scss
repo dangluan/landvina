@@ -45,7 +45,8 @@ form.base-form{
   fieldset.inputs{
     ol{
       li.string, li.number, li.file{
-        padding: 5px 0px;
+        padding: 5px 0px 0px 0px;
+        margin-top: 2px;
         label{
           color: #666;
           text-align: right;

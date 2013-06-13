@@ -12,6 +12,7 @@
  *= require formtastic
  *= require cus-formtastic
  *= require table
+ *= require ruby_gallery/styles
  */
 
 @import "bourbon";
@@ -98,28 +99,28 @@ div.main-content{
       	a.head-back-action{
           float: left;
           display: block;
-          @include button(#123456);
+          @include button(#f0f0f0);
           border: 1px solid #9b9b9b;
           color: #000;
           margin-left: 10px;
-          padding: 5px 8px;
+          padding: 0px;
           i.icon-back{
-            background-position: -236px 264px;
-            height: 11px;
-            width: 21px;
+            background-position: -332px 273px;
+            height: 20px;
+            width: 22px;
     	    }
         }
         a.head-add-action{
           float: right;
           display: inline-block;
           margin-right: 10px;  
-          @include button(#123456);
+          @include button(#f0f0f0);
           border: 1px solid #9b9b9b;
           padding: 0px;
           i.icon-add-element{
-            background-position: -400px 41px;
+            background-position: -403px 66px;
             height: 20px;
-            width: 27px;
+            width: 22px;
           }
         }
       }

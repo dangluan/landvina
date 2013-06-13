@@ -26,6 +26,7 @@
         <td><%= land.land_status %></td>
         <td><%= land.price %></td>
         <td>
+        	<a class="dynamic-link upload-preview" data-url="/admins/lands/<%= land.id %>/upload_preview" data-element="#stage" data-method="GET" href="#">Upload preview</a>
           <a class="dynamic-link edit" data-url="/admins/lands/<%= land.id %>/edit" data-element="#stage" data-method="GET" href="#" >Edit</a>
           <a class="dynamic-link remove" data-url="/admins/lands/<%= land.id %>" data-element="#stage" href="#" data-method="DELETE" data-confirm="<%= "delete ?" %>">Remove</a>
         </td>

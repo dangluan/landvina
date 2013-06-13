@@ -17,6 +17,7 @@ gem 'paperclip', '~> 3.0'
 gem 'kaminari'
 gem 'gmpoint', git: "git@github.com:dangluan/gmpoint.git", tag: "v0.1.2"
 gem 'new_responds_to_parent', git: "git@github.com:jameshuynh/new_responds_to_parent.git"
+gem "ruby_gallery", path: "../ruby_gallery"
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do

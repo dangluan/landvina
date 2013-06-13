@@ -1,8 +1,10 @@
 class LandsController < ApplicationController
+  
   before_filter :authenticate_admin!
   layout "admin"
   include ApplicationHelper
   
+  upload_album_for :lands
   def index
     load_data Land, {per_page: 10}
     render :layout => false
@@ -37,6 +39,11 @@ class LandsController < ApplicationController
     else
       render :action => 'edit', :layout => false
     end
+  end
+  
+  def upload_preview
+    @land = Land.find(params[:id])
+    render :partial => '/shared/upload_preview', :locals => { land: @land }
   end
   
   def destroy
