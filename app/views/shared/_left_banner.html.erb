@@ -3,18 +3,18 @@
     <h2>Menu</h2>
     <div class="vnav">
       <ul class="vnav-menu">
-        <li class="active">
-          <a href="#" class="vnav-item">
+        <li class="active dynamic-link" data-url="/clients/index" data-load-element="" data-method="GET" data-type="rent">
+          <a href="#" class="vnav-item" >
             <i class="icon-friends"></i>
             Cho Thuê BDS
-            <span class="vnav-counter">4</span>
+            <span class="vnav-counter"><%= Land.count_land("rent")%></span>
           </a>
         </li>
-        <li>
-          <a href="#" class="vnav-item">
+        <li class="dynamic-link" data-url="/clients/index" data-load-element="" data-method="GET" data-type="sale">
+          <a href="#" class="vnav-item " >
             <i class="icon-video"></i>
             Bán BDS
-            <span class="vnav-counter">8</span>
+            <span class="vnav-counter"><%= Land.count_land("sale")%></span>
           </a>
         </li>
         <li>

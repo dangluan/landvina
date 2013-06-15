@@ -12,8 +12,9 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require script
 //= require locations
 //= require jquery.fancybox
 //= require jquery.fancybox.pack
 //= require jquery.mousewheel-3.0.6.pack
+//= require jquery.slides
+//= require script

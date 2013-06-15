@@ -1,10 +1,10 @@
 <div class="line-fat">
 	<div class="head-actions">
 		<a class="head-back-action" href="#" href="#" data-url="/admins/lands" data-element="#stage" data-method="GET">
-			<i class="icon-back"></i>
+			<i class="icon-admin-back"></i>
 		</a>
 		<a class="head-add-action dynamic-link" href="#" data-url="/admins/lands/new" data-element="#stage" data-method="GET">
-			<i class="icon-add-element"></i>
+			<i class="icon-admin-add-element"></i>
 		</a>
 	</div>
 </div>
@@ -16,7 +16,7 @@
         <th>Vitri</th>
         <th>Tien do</th>
         <th>Gia</th>
-        <th class="action last"><%= t("web_action.actions") %></th>
+        <th class="action last" style="text-align:center;">Actions</th>
     </thead>
     <tbody>
       <% @lands.each do |land| %>
@@ -25,10 +25,13 @@
         <td><%= land.land_position_text %></td>
         <td><%= land.land_status %></td>
         <td><%= land.price %></td>
-        <td>
-        	<a class="dynamic-link upload-preview" data-url="/admins/lands/<%= land.id %>/upload_preview" data-element="#stage" data-method="GET" href="#">Upload preview</a>
-          <a class="dynamic-link edit" data-url="/admins/lands/<%= land.id %>/edit" data-element="#stage" data-method="GET" href="#" >Edit</a>
-          <a class="dynamic-link remove" data-url="/admins/lands/<%= land.id %>" data-element="#stage" href="#" data-method="DELETE" data-confirm="<%= "delete ?" %>">Remove</a>
+        <td class="actions" >
+        	<i class="icon-admin-upload-preview"></i>
+        	<a class="dynamic-link " data-url="/admins/lands/<%= land.id %>/upload_preview" data-element="#stage" data-method="GET" href="#">Upload preview</a>
+        	<i class="icon-admin-edit"></i>
+          <a class="dynamic-link " data-url="/admins/lands/<%= land.id %>/edit" data-element="#stage" data-method="GET" href="#" >Edit</a>
+          <i class="icon-admin-remove"></i>
+          <a class="dynamic-link " style="color: #c00;" data-url="/admins/lands/<%= land.id %>" data-element="#stage" href="#" data-method="DELETE" data-confirm="<%= "delete ?" %>">Remove</a>
         </td>
       </tr>
       <% end %>

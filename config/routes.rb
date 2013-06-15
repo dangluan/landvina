@@ -18,7 +18,8 @@ RailsApp::Application.routes.draw do
     end
   end
   
-  
+  get '/clients/new_contact', controller: :clients, action: :new_contact
+  get '/clients/feed_back', controller: :clients, action: :feed_book
   get '/clients/:id/land_detail', controller: :clients, action: :land_detail
   get '/clients/:id/show_map', controller: :clients, action: :show_map
   get '/clients/index', controller: :clients, action: :index

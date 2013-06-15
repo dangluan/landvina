@@ -12,6 +12,9 @@
  *= require style
  *= require menu
  *= require jquery.fancybox
+ *= require nanoscroller
+ *= require slides_content
+ *= require formtastic-customize
  */
 @import "bourbon";
 
@@ -39,6 +42,49 @@
   height: 35px;
   text-align: center;
   width: 24px;
+}
+
+form.client-form{
+  margin-top: 50px !important;
+  
+  fieldset.inputs{
+    ol li{
+      input, textarea{
+        &:focus {
+          border-color: #46aefe;
+          outline: none;
+          @include box-shadow(inset 0 1px 2px rgba(black, .1), 0 0 5px #46aefe);
+          background: #F5F9CF;
+        }
+      }
+    }
+  }
+}
+
+
+.nano .content {
+padding: 20px;
+}
+
+.nano .pane {
+background: #555;
+width: 8px;
+right: 1px;
+  margin: 5px;
+}
+
+.nano .slider {
+background: #111;
+}
+
+div.header{
+  
+  div#logo{
+    background: url("/assets/land-logo.png") no-repeat scroll 0 0 transparent;
+    width: 126px;
+    height: 82px;
+    margin: 20px 0px 0px 176px;
+  }
 }
 
 div.inner-container{
@@ -180,7 +226,6 @@ div.nav-wrapper{
     font-weight: bold;
     border-radius: 5px 5px 0px 0px;
     @include box-shadow(3px 1px 3px #ccc);
-    border-bottom: 1px solid #1C638F;
     text-align: center;
   }  
 }
@@ -194,15 +239,20 @@ div.supports{
 
 div#page-wrap{
   position: relative;
-  
   div#feed_back{
-    position:fixed;
-    background: blue;
-    width: 20px;
-    height: 50px;
-    a{
-      
+    position: fixed;
+    bottom: 100px;
+    right: 0px;
+    width: 40px;
+    height: 90px;
+    background: url("/assets/feedback.png") no-repeat scroll 0 0 transparent;
+    cursor: pointer;
+    a.feedback{
+      width: 40px;
+      height: 80px;
+      cursor: pointer;
     }
+    
   }
 }
 
@@ -240,11 +290,19 @@ div.list-items{
         padding: 3px 5px 5px 10px;
         width: 94%;
       }
-      div.description{
+      div.price-tag{
         float: left;
-        color: #666;
-        padding: 5px 5px 5px 10px;
-        width: 94%;
+        padding: 3px 3px 3px 10px;
+        span.title{
+          color: #777;
+          font-size: 16px;
+        }
+        span.price{
+          color: #c00;
+          font-size: 32px;
+          font-weight: bold;
+          margin-left: 10px;
+        }
       }
       div.item-footer{
         position: absolute;
@@ -263,6 +321,3 @@ div.list-items{
     }
   }
 }
-
-
-/* *= require ruby_gallery/styles */

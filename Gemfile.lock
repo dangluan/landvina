@@ -9,18 +9,6 @@ GIT
       new_responds_to_parent
 
 GIT
-  remote: git@github.com:dangluan/ruby_gallery.git
-  revision: 053e4541894b8e9058015ef5313121868ed885b9
-  tag: v0.2.5
-  specs:
-    ruby_gallery (0.2.5)
-      bourbon
-      cocaine (~> 0.5.1)
-      compass-rails
-      jquery-fileupload-rails
-      paperclip (~> 3.0)
-
-GIT
   remote: git@github.com:jameshuynh/new_responds_to_parent.git
   revision: 2c1857d235916018a4960c1f4aa2585bd4aae472
   specs:
@@ -120,7 +108,7 @@ GEM
       treetop (~> 1.4.8)
     mime-types (1.23)
     minitest (5.0.4)
-    multi_json (1.7.6)
+    multi_json (1.7.7)
     mysql2 (0.3.11)
     mysql2 (0.3.11-x86-mingw32)
     orm_adapter (0.4.0)
@@ -156,6 +144,11 @@ GEM
     rake (10.0.4)
     rdoc (3.12.2)
       json (~> 1.4)
+    ruby_gallery (0.3.0.6)
+      bourbon
+      compass-rails
+      jquery-fileupload-rails
+      paperclip (~> 3.0)
     sass (3.2.9)
     sass-rails (3.2.6)
       railties (~> 3.2.0)
@@ -203,7 +196,7 @@ DEPENDENCIES
   paperclip (~> 3.0)
   rack (~> 1.4.5)
   rails (~> 3.2.13)
-  ruby_gallery!
+  ruby_gallery
   sass-rails (~> 3.2.3)
   sqlite3
   thin

@@ -2,9 +2,9 @@ class LandsController < ApplicationController
   
   before_filter :authenticate_admin!
   layout "admin"
-  include ApplicationHelper
   
   upload_album_for :lands
+  
   def index
     load_data Land, {per_page: 10}
     render :layout => false
@@ -35,15 +35,16 @@ class LandsController < ApplicationController
     @land = Land.find(params[:id])
     if @land.update_attributes(params[:land])
       load_data Land
-      render :action => 'index', :layout => false
+      response = render_to_string action: "index", layout: false
     else
-      render :action => 'edit', :layout => false
+      response = render_to_string action: "edit", layout: false
     end
+    load_response_from_iframe("#stage", response)
   end
   
   def upload_preview
     @land = Land.find(params[:id])
-    render :partial => '/shared/upload_preview', :locals => { land: @land }
+    render :partial => '/shared/upload_preview', :locals => {land: @land}
   end
   
   def destroy

@@ -10,9 +10,11 @@
  *
  *= require_self
  *= require formtastic
- *= require cus-formtastic
  *= require table
  *= require ruby_gallery/styles
+ *= require tinyeditor
+ *= require formtastic-customize
+ *= require jquery.fancybox
  */
 
 @import "bourbon";
@@ -29,7 +31,7 @@ body{
 div.vmenu{
   h2.dash-root a{
     font-weight: normal;
-    i.icon-root{
+    i.icon-admin-root{
       background-position: -258px 316px;
       height: 11px;
       width: 21px;
@@ -42,7 +44,7 @@ div.vmenu{
       a{
         color: #000;
         text-decoration: none;
-        i.icon-menu{
+        i.icon-admin-menu{
           background-position: -429px 319px;
           height: 14px;
           width: 21px;
@@ -70,23 +72,27 @@ div.header{
 
 div.left-menu{
   border-right: 1px solid #ccc;
-  box-shadow: 1px 1px 2px #b0b0b0;
+  background: none repeat scroll 0 0 #F3F3F3;
+  border-right: 1px solid #CCCCCC;
 }
 
 div.main-content{
   height: 100%;
   width: 100%;
   div#stage{
-    background: #fff;
+    background: url("/assets/ad_bg5.png") repeat scroll 0 0 transparent;
     width: 100%;
     height: 100%;
     overflow-y: scroll;
+    
+    /* line-fat */
   	div.line-fat{
   	  border-bottom: 1px solid #ccc;
   	  box-shadow: 0px 0px 3px 1px #b0b0b0;
   	  padding: 5px 0px;
   	  @include linear-gradient(#ccc, #f6f6f6);
   	  height: 25px;
+  	  margin-bottom: 20px;
   	  div.head-actions{
   	    @include clearfix;
   	    p{
@@ -104,7 +110,7 @@ div.main-content{
           color: #000;
           margin-left: 10px;
           padding: 0px;
-          i.icon-back{
+          i.icon-admin-back{
             background-position: -332px 273px;
             height: 20px;
             width: 22px;
@@ -117,7 +123,7 @@ div.main-content{
           @include button(#f0f0f0);
           border: 1px solid #9b9b9b;
           padding: 0px;
-          i.icon-add-element{
+          i.icon-admin-add-element{
             background-position: -403px 66px;
             height: 20px;
             width: 22px;
@@ -125,10 +131,72 @@ div.main-content{
         }
       }
     }
+    /* end line-fat*/
+    
+    /* main-data*/
+   div.main-data{
+     table.table-basic{
+       tbody tr{
+         td.actions{
+           i.icon-admin-upload-preview{
+              background-position: -160px 303px;
+              height: 20px;
+              width: 22px;
+           }
+           i.icon-admin-edit{
+              background-position: -726px 301px;
+              height: 20px;
+              width: 22px;
+           }
+           i.icon-admin-remove{   
+              background-position: 22px 319px;
+              height: 14px;
+              width: 22px;
+           }
+           
+         }
+       }
+     }
+     
+     form.base-form{
+       width: 535px;
+       margin: 0px auto !important;
+       
+       ol{
+         li {
+           input{
+             
+             &:focus {
+              border-color: #46aefe;
+              outline: none;
+              @include box-shadow(inset 0 1px 2px rgba(black, .1),
+                                  0 0 5px #46aefe);
+              background: #F5F9CF;
+            }
+           }
+         }
+         li.submit input{
+            @include button(#123456);
+            color: white;
+         }
+         li.map-goole{
+           div#geopoint_search_box_container{
+             input{
+               width: 100%;
+             }
+           }
+           div#map_canvas{
+             width: 100%;
+           }
+         }
+       }
+     }
+   }
+   /* end main-data*/
   }
 }
 		
-[class*="icon-"] {
+[class*="icon-admin-"] {
     background-image: url("/assets/meta-icons.png");
     color: transparent;
     display: inline-block;
@@ -202,6 +270,7 @@ table.item-list {
       font-weight: bold;
       text-shadow: 0.1em 0.1em 0.1em #3F3F3F;
       @include linear-gradient(center, #586C8C, #3B567E, #264474);
+      text-align: left;
     }
   }
 
