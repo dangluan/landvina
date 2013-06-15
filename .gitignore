@@ -14,5 +14,6 @@
 /log/*.log
 /tmp
 .project
-/public/system
+/public/system/*
+/public/system/
 .DS_Store
