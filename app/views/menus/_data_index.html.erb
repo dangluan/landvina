@@ -1,0 +1,42 @@
+<div class="line-fat">
+	<div class="head-actions">
+		<a class="head-back-action" href="#" href="#" data-url="/admins/menus" data-element="#stage" data-method="GET">
+			<i class="icon-admin-back"></i>
+		</a>
+		<a class="head-add-action ajax-link" href="#" data-url="/admins/menus/new" data-element="#stage" data-method="GET">
+			<i class="icon-admin-add-element"></i>
+		</a>
+	</div>
+</div>
+
+<div class="main-data">
+	<div class="data-table">
+		<table class="table-basic item-list has-effect display dataTable">
+		  <thead>
+		      <th class="first">Name</th>
+		      <th>Priority</th>
+		      <th class="action last" style="text-align:center;">Actions</th>
+		  </thead>
+		  <tbody>
+		    <% menus.each do |menu| %>
+		    <tr class="<%= cycle('odd', 'even') %>">
+		      <td><%= menu.name %></td>
+		      <td><%= menu.priority %></td>
+		      <td class="actions" >
+		      	<i class="icon-admin-upload-preview"></i>
+		      	<a class="dynamic-link " data-url="/admins/menus/<%= menu.id %>/upload_preview" data-element="#stage" data-method="GET" href="#">Upload preview</a>
+		      	<i class="icon-admin-edit"></i>
+		        <a class="dynamic-link " data-url="/admins/menus/<%= menu.id %>/edit" data-element="#stage" data-method="GET" href="#" >Edit</a>
+		        <i class="icon-admin-remove"></i>
+		        <a class="dynamic-link " style="color: #c00;" data-url="/admins/menus/<%= menu.id %>" data-element="#stage" href="#" data-method="DELETE" data-confirm="Ban muon xoa menu nay">Remove</a>
+		      </td>
+		    </tr>
+		    <% end %>
+		  </tbody>
+		</table>
+	</div>
+	<div class="cus-pagination">
+		<%= paginate menus, remote: true %>
+	</div>
+	
+</div>

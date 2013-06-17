@@ -1,7 +1,7 @@
 
 
 <div class="main-data">
-	<%= semantic_form_for @land , remote: true, html: {class: "base-form", target: "app_iframe", :onsubmit => "transferContentFromTinyEditor();"} do |f|%>
+	<%= semantic_form_for @land, html: {class: "base-form", target: "app_iframe", :onsubmit => "transferContentFromTinyEditor();"} do |f|%>
 		<%= f.inputs do %>
 			<%= f.input :title%>
 			<%= f.input :avatar, as: :file%>

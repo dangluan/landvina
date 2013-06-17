@@ -1,7 +1,5 @@
 class ClientsController < ApplicationController
-    
   def index
-    # load_data Land, {where: {land_type: params[:type]}, includes: :album_photos}
     @lands = Land.where(land_type: params[:type]).includes(:album_photos).order("created_at DESC")
     render :layout => false
   end
@@ -30,10 +28,10 @@ class ClientsController < ApplicationController
     render :partial => '/shared/contact', :locals => { contact: @contact }
   end
   
-  def add_contact{
+  def add_contact
     @contact = Contact.new(params[:contact])
     if @contact.save
-      
+      render :partial => '/shared/thank_for_add_contact', locals: {contact: @contact}
     else
       render :action => 'new_contact', layout: false
     end

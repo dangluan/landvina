@@ -15,41 +15,90 @@
  *= require tinyeditor
  *= require formtastic-customize
  *= require jquery.fancybox
+ *= require ./admin/left_menu
  */
 
 @import "bourbon";
 
-ul li {
-  list-style: none;
-}
+
 body{
   font: 0.8em 'Lucida Grande', Tahoma, Verdana, sans-serif;
   color: #404040;
   background: #fff;
 }
 
-div.vmenu{
-  h2.dash-root a{
-    font-weight: normal;
-    i.icon-admin-root{
-      background-position: -258px 316px;
-      height: 11px;
-      width: 21px;
-    }
+div.contact-detail{
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 1px 1px 3px #ccc;
+  background: none repeat scroll 0 0 gold;
+  width: 500px;
+  @include clearfix;
+  div.header-title{
+    width: 100%;
+    color: #fff;
+    font-weight: bold;
+    @include linear-gradient(top , #586C8C, #264474);
+    float: left;
+    display: block;
+    text-align: center;
+    padding: 5px 0px;
   }
-  ul.sub-menu{
-    
-    li{
-      padding: 3px 0px;
-      a{
-        color: #000;
-        text-decoration: none;
-        i.icon-admin-menu{
-          background-position: -429px 319px;
-          height: 14px;
-          width: 21px;
+  div.contact-wrapper{
+    float: left;
+    display: block;
+    padding: 20px;
+    @include clearfix;
+    div.contact-head{
+      @include clearfix;
+      width: 460px;
+      float: left;
+      display: inline-block;
+      height: 50px;
+      p{
+        float: left;
+        display: block;
+        line-height: 20px;
+        padding: 0;
+        margin: 0px;
+        width: 220px;
+        label{
+          width: 50px;
+          font-weight: bold;
         }
       }
+    }
+    
+    div.contact-content{
+      background: none repeat scroll 0 0 #F3F3F3;
+      border: 1px solid #CCCCCC;
+      border-radius: 5px 5px 5px 5px;
+      display: block;
+      float: left;
+      height: 300px;
+      padding: 5px;
+      width: 450px;
+    }
+  }
+}
+
+ul li {
+  list-style: none;
+}
+
+ul.tree{
+  li a{
+    position: relative;
+    div.tick-counter{
+      background: none repeat scroll 0 0 #CC0000;
+      border: 1px solid #CC0000;
+      border-radius: 3px 3px 3px 3px;
+      color: white;
+      font-size: 11px;
+      padding: 1px 3px;
+      position: absolute;
+      right: -15px;
+      top: -10px;
     }
   }
 }
@@ -89,9 +138,7 @@ div.main-content{
   	div.line-fat{
   	  border-bottom: 1px solid #ccc;
   	  box-shadow: 0px 0px 3px 1px #b0b0b0;
-  	  padding: 5px 0px;
   	  @include linear-gradient(#ccc, #f6f6f6);
-  	  height: 25px;
   	  margin-bottom: 20px;
   	  div.head-actions{
   	    @include clearfix;
@@ -135,28 +182,71 @@ div.main-content{
     
     /* main-data*/
    div.main-data{
-     table.table-basic{
-       tbody tr{
-         td.actions{
-           i.icon-admin-upload-preview{
-              background-position: -160px 303px;
-              height: 20px;
-              width: 22px;
+     @include clearfix;
+     div.data-table{
+       width: 100%;
+       float: left;
+       display: block;
+       table.table-basic{
+         tbody tr{
+           td.actions{
+             i.icon-admin-upload-preview{
+                background-position: -160px 303px;
+                height: 20px;
+                width: 22px;
+             }
+             i.icon-admin-edit{
+                background-position: -726px 301px;
+                height: 20px;
+                width: 22px;
+             }
+             i.icon-admin-remove{   
+                background-position: 22px 319px;
+                height: 14px;
+                width: 22px;
+             }
+             i.icon-admin-send-mail{
+                background-position: -65px 319px;
+                height: 14px;
+                width: 22px;
+             }
+             i.icon-admin-show{
+                background-position: -40px 319px;
+                height: 14px;
+                width: 22px;
+             }
            }
-           i.icon-admin-edit{
-              background-position: -726px 301px;
-              height: 20px;
-              width: 22px;
-           }
-           i.icon-admin-remove{   
-              background-position: 22px 319px;
-              height: 14px;
-              width: 22px;
-           }
-           
          }
        }
      }
+     
+     div.cus-pagination{
+        margin: 15px 10px 20px 0px;
+        float: right;
+        display: inline-block;
+        nav.pagination{
+          span{
+            margin-left:3px;
+            padding: 5px 8px;
+            border-radius: 3px;
+            @include linear-gradient(#ccc, #fff);
+            box-shadow: 1px 1px 2px #b0b0b0;
+            cursor: pointer;
+            a{
+              width: 23px;
+              height: 23px;
+              text-decoration: none;
+              color: #333;
+              font-size: 12px;
+              border: 1px solid #ccc;
+            }
+          }
+          span.current{
+            color: #666;
+            @include linear-gradient(#999, #f3f3f3);
+          }
+        }
+      }
      
      form.base-form{
        width: 535px;
@@ -191,8 +281,7 @@ div.main-content{
          }
        }
      }
-   }
-   /* end main-data*/
+   }/* end main-data*/
   }
 }
 		
@@ -425,3 +514,6 @@ table.has-effect {
   }
 }
 
+.hidden{
+  display: none;
+}

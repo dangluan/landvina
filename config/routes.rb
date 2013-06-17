@@ -1,5 +1,12 @@
 RailsApp::Application.routes.draw do
 
+
+  delete '/trademarks/:id/delete_photo', controller: :trademarks, action: :delete_photo
+
+  post '/trademarks/upload_album', controller: :trademarks, action: :upload_album
+
+  put '/trademarks/update_ruby_gallery_position', controller: :trademarks, action: :update_ruby_gallery_position
+
   delete '/lands/:id/delete_photo', controller: :lands, action: :delete_photo
 
   post '/lands/upload_album', controller: :lands, action: :upload_album
@@ -16,8 +23,14 @@ RailsApp::Application.routes.draw do
         get :upload_preview
       end
     end
+    resources :contacts
+    resources :articles
+    resources :sub_menus
+    resources :menus
+    resources :trademarks
   end
   
+  post '/clients/add_contact', controller: :clients, action: :add_contact
   get '/clients/new_contact', controller: :clients, action: :new_contact
   get '/clients/feed_back', controller: :clients, action: :feed_book
   get '/clients/:id/land_detail', controller: :clients, action: :land_detail

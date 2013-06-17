@@ -9,7 +9,6 @@ class ApplicationController < ActionController::Base
     elsif opts[:includes].nil? == false
       eval("@#{model.to_s.pluralize.downcase} = model.where(opts[:where]).includes(opts[:include]).order('created_at DESC').page(params[:page] || 1).per(opts[:per_page])")
     elsif opts[:where].nil? == false and opts[:includes].nil? == false
-      p "22222"
       eval("@#{model.to_s.pluralize.downcase} = model.includes(opts[:include]).order('created_at DESC').page(params[:page] || 1).per(opts[:per_page])")
     else
       eval("@#{model.to_s.pluralize.downcase} = model.order('created_at DESC').page(params[:page] || 1).per(opts[:per_page])")
@@ -18,7 +17,6 @@ class ApplicationController < ActionController::Base
   
   def load_response_from_iframe(container, response, successful=true, callback_js='')
       if request.xhr? == nil
-        p 'hahahah'
         responds_to_parent do
           render js: %Q{
                           $('#{container}').html('#{escape_javascript(response)}');

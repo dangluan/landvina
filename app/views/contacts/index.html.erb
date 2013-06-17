@@ -1,0 +1,20 @@
+<div class="line-fat">
+	<div class="head-actions">
+		<a class="head-back-action" href="#" href="#" data-url="/admins/contacts" data-element="#stage" data-method="GET">
+			<i class="icon-admin-back"></i>
+		</a>
+		<a class="head-add-action ajax-link" href="#" data-url="/admins/contacts/new" data-element="#stage" data-method="GET">
+			<i class="icon-admin-add-element"></i>
+		</a>
+	</div>
+</div>
+
+<div class="main-data">
+	<div class="data-table">
+		<%= render :partial => "/contacts/data_table", locals: {contacts: @contacts}%>
+	</div>
+	<div class="cus-pagination">
+		<%= paginate @contacts, remote: true %>
+	</div>
+	
+</div>

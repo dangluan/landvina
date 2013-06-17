@@ -1,0 +1,40 @@
+<div class="main-data">
+	<%= semantic_form_for @article, remote: true , html: {class: "base-form land-form", :onsubmit => "transferContentFromTinyEditor();"} do |f|%>
+		<%= f.inputs do %>
+			<%= f.input :title%>
+			<%= f.input :content, label: false%>
+		<% end%>
+		<%= f.actions do %>
+			<li class="submit">
+				<label></label>
+	      <input class="base-form-submit" type="submit" value="Save" name="commit">
+			</li>
+	  <% end %>	
+	<% end %>
+</div>
+
+<script language='javascript'>
+  $(document).ready(function(){
+        window.newContentEditor = new TINY.editor.edit('editor', {
+         id: 'article_content',
+         width: 530,
+         height: 175,
+         cssclass: 'tinyeditor',
+         controlclass: 'tinyeditor-control',
+         rowclass: 'tinyeditor-header',
+         dividerclass: 'tinyeditor-divider',
+         controls: ['bold', 'italic', 'underline', 'strikethrough', '|', 'subscript', 'superscript', '|',
+         'orderedlist', 'unorderedlist', '|', 'outdent', 'indent', '|', 'leftalign',
+         'centeralign', 'rightalign', 'blockjustify', '|', 'unformat', '|', 'undo', 'redo', 'n',
+            'size', 'style', '|', 'image', 'hr', 'link', 'unlink', '|', 'print'],
+         footer: true,
+         fonts: ['Verdana','Arial','Georgia','Trebuchet MS'],
+         xhtml: true,
+         cssfile: '/assets/tinyeditor.css',
+         bodyid: 'editor',
+         footerclass: 'tinyeditor-footer',
+         toggle: {text: 'source', activetext: 'wysiwyg', cssclass: 'toggle'},
+         resize: {cssclass: 'resize'}
+       });
+  });
+</script>

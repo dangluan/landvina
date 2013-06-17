@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130615104512) do
+ActiveRecord::Schema.define(:version => 20130617160318) do
 
   create_table "admins", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
@@ -45,6 +45,14 @@ ActiveRecord::Schema.define(:version => 20130615104512) do
 
   add_index "album_photos", ["photoable_id", "photoable_type"], :name => "index_album_photos_on_photoable_id_and_photoable_type"
 
+  create_table "articles", :force => true do |t|
+    t.string   "title"
+    t.text     "content"
+    t.integer  "sub_menu_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
   create_table "assets", :force => true do |t|
     t.integer  "attachment_id"
     t.datetime "created_at",        :null => false
@@ -72,9 +80,35 @@ ActiveRecord::Schema.define(:version => 20130615104512) do
     t.string   "yahoo_nick"
     t.string   "email"
     t.text     "content"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",                      :null => false
+    t.datetime "updated_at",                      :null => false
+    t.boolean  "mark_as_read", :default => false, :null => false
   end
+
+  create_table "impressions", :force => true do |t|
+    t.string   "impressionable_type"
+    t.integer  "impressionable_id"
+    t.integer  "user_id"
+    t.string   "controller_name"
+    t.string   "action_name"
+    t.string   "view_name"
+    t.string   "request_hash"
+    t.string   "ip_address"
+    t.string   "session_hash"
+    t.text     "message"
+    t.text     "referrer"
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
+  end
+
+  add_index "impressions", ["controller_name", "action_name", "ip_address"], :name => "controlleraction_ip_index"
+  add_index "impressions", ["controller_name", "action_name", "request_hash"], :name => "controlleraction_request_index"
+  add_index "impressions", ["controller_name", "action_name", "session_hash"], :name => "controlleraction_session_index"
+  add_index "impressions", ["impressionable_type", "impressionable_id", "ip_address"], :name => "poly_ip_index"
+  add_index "impressions", ["impressionable_type", "impressionable_id", "request_hash"], :name => "poly_request_index"
+  add_index "impressions", ["impressionable_type", "impressionable_id", "session_hash"], :name => "poly_session_index"
+  add_index "impressions", ["impressionable_type", "message", "impressionable_id"], :name => "impressionable_type_message_index"
+  add_index "impressions", ["user_id"], :name => "index_impressions_on_user_id"
 
   create_table "lands", :force => true do |t|
     t.string   "title"
@@ -92,6 +126,28 @@ ActiveRecord::Schema.define(:version => 20130615104512) do
     t.float    "location_longitude"
     t.string   "location_address"
     t.text     "description"
+  end
+
+  create_table "menus", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at",                :null => false
+    t.datetime "updated_at",                :null => false
+    t.integer  "priority",   :default => 0
+  end
+
+  create_table "sub_menus", :force => true do |t|
+    t.string   "name"
+    t.integer  "priority",        :default => 0
+    t.integer  "menu_id"
+    t.string   "link_to_article"
+    t.datetime "created_at",                     :null => false
+    t.datetime "updated_at",                     :null => false
+  end
+
+  create_table "trademarks", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
 end

@@ -1,0 +1,3 @@
+$('div#stage div.main-data div.data-table').html('<%= escape_javascript render(:partial =>"/lands/data_table",:locals => { :lands => @lands})%>');
+alert(1);
+$('div#stage div.main-data div.cus-pagination').html('<%= escape_javascript(paginate(@lands, :remote => true, :params => {:controller => 'lands', :action => 'index'}, method: :get).to_s) %>');

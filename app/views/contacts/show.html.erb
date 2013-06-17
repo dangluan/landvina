@@ -1,0 +1,14 @@
+<div class="contact-detail">
+	<div class="header-title">Messages</div>
+	<div class="contact-wrapper">		
+		<div class="contact-head">
+			<p><label>Name</label>  :<b><%= @contact.full_name%></b></p>
+			<p><label>Email</label> : <%= @contact.email%></p>
+			<p><label>Phone</label> : <%= @contact.phone%></p>
+			<p><label>Yahoo</label> : <%= @contact.yahoo_nick%></p>
+		</div>
+		<div class="contact-content">
+			<p><%= @contact.content%></p>
+		</div>
+	</div>
+</div>

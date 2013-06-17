@@ -1,0 +1,16 @@
+<div class="main-data">
+	<%= semantic_form_for @submenu, remote: true , html: {class: "base-form land-form"} do |f|%>
+		<%= f.inputs do %>
+			<%= f.input :name%>
+			<%= f.input :link_to_article%>
+			<%= f.input :priority%>
+			<%= f.input :menu, as: :select, prompt: true%>
+		<% end%>
+		<%= f.actions do %>
+			<li class="submit">
+				<label></label>
+	      <input class="base-form-submit" type="submit" value="Save" name="commit">
+			</li>
+	  <% end %>	
+	<% end %>
+</div>

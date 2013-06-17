@@ -1,11 +1,32 @@
-<div class="vmenu">
-	<h2 class="dash-root"><a class="dynamic-link" data-url="/admins/dashboard/home" data-method="GET" data-element="#stage"><i class="icon-admin-root"></i>dashboard</a></h2>
-	<ul class="sub-menu">
-		<li class="">
-			<a href="#" class="dynamic-link" data-url="/admins/lands" data-method="GET" data-element="#stage"><i class="icon-admin-menu"></i>Land</a>
-		</li>
-		<li class="">
-			<a href="#"><i class="icon-admin-menu"></i>Advisory</a>
-		</li>
-	</ul>
+
+
+<div class="column-inside drop-in-menu main-menu">
+	<div class="content">
+		<h3 class="subtitle">
+			<span class="menu-head">Data</span>
+			<span class="show-hide hidden">Hide</span>
+			<ul class="tree">
+				<li class="first active dynamic-link" data-url="/admins/dashboard/home" data-method="GET" data-load-element="#stage"><a class="summary_all ">Home</a></li>
+				<li class="dynamic-link" data-url="/admins/lands" data-method="GET" data-load-element="#stage"><a class="summary_all " href="#">Land</a></li>
+				
+				<li><a class="summary_all" href="/admin/posts">Broadcast</a></li>
+				<li class="last"><a class="summary_all" href="/admin/competitions">Competitive</a></li>
+			</ul>
+			</h3><h3 class="subtitle">
+			<span class="menu-head">Admin</span>
+			<span class="show-hide hidden">Hide</span>
+			<ul class="tree">
+				<li class="first dynamic-link" data-url="/admins/contacts" data-method="GET" data-load-element="#stage"><a class="settings" href="#">Contacts<div class="tick-counter"><%= Contact.mark_as_unread%></div></a></li>
+				<li class="dynamic-link" data-url="/admins/menus" data-method="GET" data-load-element="#stage"><a class="summary_all" href="#">Menu</a></li>
+				<li class="dynamic-link" data-url="/admins/sub_menus" data-method="GET" data-load-element="#stage"><a class="summary_all" >Sub Menu</a></li>
+				<li class="dynamic-link" data-url="/admins/articles" data-method="GET" data-load-element="#stage"><a class="summary_all article-content" href="#">Articles</a></li>
+				<li class="dynamic-link" data-url="/admins/trademarks" data-method="GET" data-load-element="#stage"><a class="summary_all article-content" href="#">Trademarks</a></li>
+				<li class="last"><a class="pricing" href="/admin/activities">Report</a></li>
+			</ul>
+		</h3>
+	</div>
+	<div class="hidden">
+		<div id="rubify_dashboard_hide_text">Hide</div>
+		<div id="rubify_dashboard_show_text">Show</div>
+	</div>
 </div>

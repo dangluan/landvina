@@ -18,7 +18,7 @@ class LandsController < ApplicationController
   def create
     @land = Land.new(params[:land])
     if @land.save
-      load_data Land
+      load_data Land, {per_page: 10}
       response = render_to_string action: "index", layout: false
     else
       response = render_to_string action: "new", layout: false
@@ -33,13 +33,13 @@ class LandsController < ApplicationController
   
   def update
     @land = Land.find(params[:id])
-    if @land.update_attributes(params[:land])
-      load_data Land
-      response = render_to_string action: "index", layout: false
-    else
-      response = render_to_string action: "edit", layout: false
-    end
-    load_response_from_iframe("#stage", response)
+      if @land.update_attributes(params[:land])
+        load_data Land, {per_page: 10}
+        response = render_to_string action: "index", layout: false
+      else
+        response = render_to_string action: "edit", layout: false
+      end
+      load_response_from_iframe("#stage", response)
   end
   
   def upload_preview

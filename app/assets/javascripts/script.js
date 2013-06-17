@@ -4,6 +4,18 @@ function transferContentFromTinyEditor() {
 
 $(document).ready(function(){
 	
+	$(document.body).delegate("form#new_contact", "submit", function(){
+		$.ajax({
+			url: "/clients/add_contact",
+			type: "post",
+			data: $(this).serialize(),
+			success: function(response){
+				$("#stage").html(response);
+			}
+		});
+		return false;
+	});
+	
 	$("body").on({
     ajaxStart: function() { 
         $(this).addClass("ajax-loading"); 
@@ -15,6 +27,12 @@ $(document).ready(function(){
 	
 	$(document.body).delegate('li.nav', 'click', function(e){
 		$('li.nav').removeClass('selected');
+		$('div.menu-left').addClass("hidden");
+		if($(this).hasClass("activity")){
+			console.log("yes");
+			$("div.menu-left").removeClass("hidden");
+		}
+		console.log("no");
 		$(this).addClass('selected');
 		var dom = $(this).attr('data-load-element');
 		var url = $(this).attr('data-url');

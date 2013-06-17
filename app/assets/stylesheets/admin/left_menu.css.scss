@@ -1,0 +1,114 @@
+@import "bourbon";
+div.ui-layout-west {
+  overflow: auto;
+  background: #E2E6EB;
+  border-right: 1px solid #B0B0B0;
+  div.column-inside {
+    padding-bottom: 30px;
+    div.content {
+    > div {
+        margin-top: 2px;
+        padding: 5px 0 5px 10px;
+        cursor: pointer;
+        display: block;
+        a {
+          text-decoration: none;
+        }
+      &.active {
+        @include linear-gradient(top, #6AB1E0 0%, #4E9AD5 50%, #3B8ACE 100%);
+        a {
+          color: #fff;
+          text-shadow: 0 1px 0 #000;
+        }
+      }
+    }
+    ul.tree {
+      list-style-type: none;
+      li.first {
+        margin-top: 5px;
+      }
+      li.active {
+        @include linear-gradient(top, #6AB1E0 0%, #4E9AD5 50%, #3B8ACE 100%);
+        b.shortcut { color: #fff; font-weight: bold; font-size: 10px;}
+        a {
+          color: #fff;
+          text-shadow: 0 1px 0 #333;
+          min-height: 20px;
+        }
+
+        a.home {
+          background: url("/assets/") no-repeat left 9px;
+        }
+        
+        
+        a.summary {
+          background: url("/assets/") no-repeat left 9px;
+        }
+
+        a.summary_all {
+          background: url("/assets/") no-repeat left 9px;
+        }
+
+
+      }
+
+      li {
+        padding-left: 10px;
+        padding-bottom: 5px;
+        padding-top: 5px;
+        color: #3f3f3f;
+        text-transform: none;
+        font-weight: normal;
+        font-size: 12px;
+        cursor: pointer;
+        b.shortcut { color: #aaa; font-weight: bold; font-size:10px;}
+        a {
+          text-decoration: none;
+          word-wrap: break-word;
+          width: 180px;
+          color: #333;
+        }
+        a.long-text {
+          line-height: 18px;
+          padding-right: 10px;
+          display: block;
+          padding-top: 0px !important;
+          background-position: 0 3px !important;
+        }
+
+        a.home {
+          background: url("/assets/") no-repeat left 9px;
+          padding-left: 22px;
+          padding-top: 10px;
+        }
+      }
+    }
+    h3.subtitle {
+      text-transform: uppercase;
+      position: relative;
+      color: #707E8B;
+      text-shadow: 0 1px 0 #efefef;
+      padding: 5px 0px;
+      font-weight: bold;
+      padding-bottom: 0px;
+      padding-top: 10px;
+      font-size: 11px;
+      cursor: default;
+      > span.menu-head {
+        padding-left: 10px;
+        display: block;
+      }
+      ul.tree li {
+        padding-left: 20px;
+        margin-left: -40px;
+      }
+    } 
+    div.line-bar-top {
+      border-top: 1px solid #999;
+    }
+    div.line-bar-bottom {
+      border-top: 1px solid #efefef;
+    }
+  }
+}
+}

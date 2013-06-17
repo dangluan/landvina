@@ -18,30 +18,30 @@
 //= require script
 //= require tiny.editor
 //= require form.jquery
+//= require jquery.fancybox
+//= require jquery.fancybox.pack
 
 
 $(document).ready(function(){
-	
 
-	
-	$(document.body).delegate('form.base-form fieldset.actions input.base-form-submit', 'click', function(e){
-  	$('form.base-form')
-  	.bind("ajax:beforeSend", function(evt, xhr, settings){
-  		
-  	})
-  	.bind("ajax:success", function(evt, data, status, xhr){	
-      $('div#stage').html(data);
-  	})
-  	.bind('ajax:complete', function(evt, xhr, status){
-  	});
-
-  });
-  	
-	$("input").focus(function () {
-		$(this).next("span").css({'border':'1px solid #3EE9EF', 'background-color':'#F5F9CF'});
+	$(document.body).delegate('.dynamic-link', 'click', function(e){
+		var _this = this;
+		var dom = $(this).attr('data-element');
+		$("ul.tree li").removeClass("active");
+		$(this).addClass("active");
+		
+		$.ajax({
+			url : $(_this).attr("data-url"),
+			type: $(_this).attr("data-method"),
+			success: function(response){
+				$(dom).html(response);
+			}
+		});
+		e.preventDefault();
+		return false;
 	});
-
-	$(document.body).delegate('a.dynamic-link', 'click', function(e){
+	
+	$(document.body).delegate('.ajax-link', 'click', function(e){
 		var _this = this;
 		var dom = $(this).attr('data-element');
 		$.ajax({
@@ -51,7 +51,19 @@ $(document).ready(function(){
 				$(dom).html(response);
 			}
 		});
-		e.preventDefault();
+		return false;
+	});
+	
+	$(document.body).delegate(".fancy-admin-link", 'click', function(){
+		$.fancybox({
+			width: 500,
+			height: 500,
+			type: "ajax",
+			padding: 0,
+			margin: 0,
+			scrolling: 'no',
+			href: $(this).attr("data-url")
+		});
 		return false;
 	});
 	

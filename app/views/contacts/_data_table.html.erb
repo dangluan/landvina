@@ -1,0 +1,29 @@
+<table class="table-basic item-list has-effect display dataTable">
+  <thead>
+      <th class="first">Fullname</th>
+      <th>Phone</th>
+      <th>Email</th>
+      <th>Yahoo nick</th>
+      <th>Content</th>
+      <th class="action last" style="text-align:center;">Actions</th>
+  </thead>
+  <tbody>
+    <% contacts.each do |contact| %>
+    <tr class="<%= cycle('odd', 'even') %>">
+    	<td><%= contact.full_name %></td>
+      <td><%= contact.phone %></td>
+      <td><%= contact.email %></td>
+      <td><%= contact.yahoo_nick %></td>
+      <td><%= truncate(contact.content, length: 50) %></td>
+      <td class="actions" >
+      	<i class="icon-admin-send-mail"></i>
+      	<a class="dynamic-link " data-url="/admins/contacts/<%= contact.id %>/send_message" data-element="#stage" data-method="GET" href="#">Send message</a>
+      	<i class="icon-admin-show"></i>
+        <a class="fancy-admin-link " data-url="/admins/contacts/<%= contact.id %>" data-element="#stage" data-method="GET" href="#" >Show contact</a>
+        <i class="icon-admin-remove"></i>
+        <a class="dynamic-link " style="color: #c00;" data-url="/admins/contacts/<%= contact.id %>" data-element="#stage" href="#" data-method="DELETE" data-confirm="<%= "delete ?" %>">Remove</a>
+      </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
